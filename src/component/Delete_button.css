@@ -1,0 +1,358 @@
+.button {
+  --background: #275EFE;
+  --background-hover: #1D4FE1;
+  --text: #fff;
+  --icon: #fff;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  padding: 9px 20px 9px 12px;
+  border-radius: 11px;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--b, var(--background));
+  transition: transform 0.3s, background 0.4s;
+  transform: scale(var(--scale, 1)) translateZ(0);
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+.button:active {
+  --scale: .95;
+}
+.button:hover {
+  --b: var(--background-hover);
+}
+.button .icon,
+.button .text {
+  display: inline-block;
+  vertical-align: top;
+  transform: translateZ(0);
+}
+.button .icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  margin-right: 8px;
+  color: var(--text);
+}
+.button .icon svg {
+  width: 96px;
+  height: 96px;
+  display: block;
+  position: absolute;
+  left: -36px;
+  top: -36px;
+  will-change: transform;
+  fill: var(--icon);
+  transform: scale(0.25) translateZ(0);
+  -webkit-animation: var(--name, var(--name-top, none)) 2400ms ease forwards;
+          animation: var(--name, var(--name-top, none)) 2400ms ease forwards;
+}
+.button .icon svg.bottom {
+  --name: var(--name-bottom, none);
+}
+.button .text {
+  -webkit-animation: var(--name-text, none) 2400ms ease forwards;
+          animation: var(--name-text, none) 2400ms ease forwards;
+}
+.button .text span {
+  display: inline-block;
+  vertical-align: top;
+  opacity: var(--span-o, 1);
+  transform: translate(var(--span-x, 0), var(--span-y, 0)) rotate(var(--span-r, 0deg)) translateZ(0);
+  transition: transform 0.3s ease var(--span-d, 0s), opacity 0.2s linear var(--span-o-d, 0.3s);
+}
+.button .text span:nth-child(1) {
+  --span-delay: 0.4s;
+  --span-o-d: 0.325s;
+}
+.button .text span:nth-child(2) {
+  --span-delay: 0.45s;
+  --span-o-d: 0.35s;
+}
+.button .text span:nth-child(3) {
+  --span-delay: 0.5s;
+  --span-o-d: 0.375s;
+}
+.button .text span:nth-child(4) {
+  --span-delay: 0.55s;
+  --span-o-d: 0.4s;
+}
+.button .text span:nth-child(5) {
+  --span-delay: 0.6s;
+  --span-o-d: 0.425s;
+}
+.button .text span:nth-child(6) {
+  --span-delay: 0.65s;
+  --span-o-d: 0.45s;
+}
+.button .text span:nth-child(7) {
+  --span-delay: 0.7s;
+  --span-o-d: 0.475s;
+}
+.button .text span:nth-child(8) {
+  --span-delay: 0.75s;
+  --span-o-d: 0.5s;
+}
+.button .text span:nth-child(9) {
+  --span-delay: 0.8s;
+  --span-o-d: 0.525s;
+}
+.button .text span:nth-child(10) {
+  --span-delay: 0.85s;
+  --span-o-d: 0.55s;
+}
+.button .text span:nth-child(11) {
+  --span-delay: 0.9s;
+  --span-o-d: 0.575s;
+}
+.button.delete {
+  --name-top: trash-top;
+  --name-bottom: trash-bottom;
+  --name-text: text;
+  --span-x: -8px;
+  --span-y: 8px;
+  --span-r: -40deg;
+  --span-o: 0;
+}
+.button.delete .text span {
+  --span-o-d: 1s;
+  --span-d: var(--span-delay);
+}
+
+@-webkit-keyframes trash-bottom {
+  25%, 32% {
+    transform: translate(32px, 19px) scale(1) translateZ(0);
+  }
+  70%, 80% {
+    transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+  90% {
+    transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+  100% {
+    transform: scale(0.25) translateZ(0);
+  }
+}
+
+@keyframes trash-bottom {
+  25%, 32% {
+    transform: translate(32px, 19px) scale(1) translateZ(0);
+  }
+  70%, 80% {
+    transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+  90% {
+    transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+  100% {
+    transform: scale(0.25) translateZ(0);
+  }
+}
+@-webkit-keyframes trash-top {
+  25%, 32% {
+    transform: translate(38px, 4px) scale(1) rotate(-20deg) translateZ(0);
+  }
+  70%, 80% {
+    transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+  90% {
+    transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+  100% {
+    transform: scale(0.25) translateZ(0);
+  }
+}
+@keyframes trash-top {
+  25%, 32% {
+    transform: translate(38px, 4px) scale(1) rotate(-20deg) translateZ(0);
+  }
+  70%, 80% {
+    transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+  90% {
+    transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+  100% {
+    transform: scale(0.25) translateZ(0);
+  }
+}
+@-webkit-keyframes text {
+  25% {
+    transform: translate(-4px, -6px) rotate(-20deg) translateZ(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-12px, 48px) rotate(-80deg) scale(0.2) translateZ(0);
+  }
+  71% {
+    opacity: 0;
+  }
+  72%, 90% {
+    opacity: 0;
+    transform: translateZ(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes text {
+  25% {
+    transform: translate(-4px, -6px) rotate(-20deg) translateZ(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-12px, 48px) rotate(-80deg) scale(0.2) translateZ(0);
+  }
+  71% {
+    opacity: 0;
+  }
+  72%, 90% {
+    opacity: 0;
+    transform: translateZ(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  font-family: "Inter", Arial;
+  justify-content: center;
+  align-items: center;
+  background: #F6F8FF;
+}
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+}
+body .dribbble img {
+  display: block;
+  height: 28px;
+}
+body .twitter {
+  position: fixed;
+  display: block;
+  right: 64px;
+  bottom: 14px;
+}
+body .twitter svg {
+  width: 32px;
+  height: 32px;
+  fill: #1da1f2;
+}
+
+.every{
+  border: 2px solid black;
+  display: flex;
+  width: 100%;
+  
+}
+
+
+.both{
+  /* border: 2px solid green; */
+  display: block;
+  min-width: 40%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+h1{width:75% ;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  word-break: break-all;
+  font-size: 25px;
+
+
+}
+
+
+
+
+.comBut{
+
+/* CSS */
+
+
+  appearance: none;
+
+  border: 2px solid #275EFE;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 20px;
+  min-width: 0;
+  outline: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+  padding: 9px 20px 9px 12px;
+
+
+  will-change: transform;
+}
+
+.comBut:disabled {
+  pointer-events: none;
+}
+
+.comBut:hover {
+  color: #fff;
+  background-color: #275EFE;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.comBut:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.comicon{
+  background-color: #275EFE;
+  color: white;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 27px;
+  position: relative;
+  left: 4px;
+}
+.comBut:hover .comicon{
+  background-color: #fff;
+  color: #275EFE;
+}
